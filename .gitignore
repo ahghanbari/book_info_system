@@ -1,2 +1,4 @@
 __pycache__
+book_store/migrations/
+db.sqlite3
 
