@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %} {% for obj in object_list %}
 <div class="post-entry">
-  <h2><a href="">{{ obj.title }}</a></h2>
+  <h2><a href="book/{{obj.id}}">{{ obj.title }}</a></h2>
   <p>{{ obj.date }}</p>
   <p>{{ obj.pages_number }}</p>
   <p>{{ obj.price }}</p>
