@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+<div class="post-entry">
+  <h2>{{ book.title }}</h2> 
+  <p>{{ book.date }}</p>
+  <p>{{ book.pages_number }}</p>
+  <p>{{ book.price }}</p>
+  <p>{{ book.description }}</p>
+</div>
+{% endblock content %}
