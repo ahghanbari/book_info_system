@@ -15,6 +15,7 @@ class BookDetailView(DetailView):
 class BookCreateView(CreateView):
     model = Book
     template_name = 'book_new.html'
+    #fields = ['title', 'pub_date', 'pages_number', 'price', 'description']
     fields = '__all__'
 
 class BookUpdateView(UpdateView):
