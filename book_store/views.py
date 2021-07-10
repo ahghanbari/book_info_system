@@ -1,4 +1,4 @@
-from django.shortcuts import render
+#from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -6,7 +6,7 @@ from .models import Book
 from .serializers import BookSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 
 class BookListView(ListView):
     model = Book

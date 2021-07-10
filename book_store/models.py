@@ -5,8 +5,8 @@ from django.conf import settings
 class Book(models.Model):
     title = models.CharField(max_length=400)
     pub_date = models.DateField()
-    pages_number = models.IntegerField()
-    price = models.IntegerField()
+    pages_number = models.PositiveIntegerField()
+    price = models.PositiveIntegerField()
     description = models.TextField()
 
     author = models.ForeignKey(
