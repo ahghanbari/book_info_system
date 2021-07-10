@@ -3,11 +3,10 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Book
-
 from .serializers import BookSerializer
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.contrib.auth.models import User
 
 class BookListView(ListView):
     model = Book
@@ -22,7 +21,7 @@ class BookCreateView(CreateView):
     template_name = 'book_new.html'
     #fields = ['title', 'pub_date', 'pages_number', 'price', 'description']
     fields = '__all__'
-
+   
 class BookUpdateView(UpdateView):
     model = Book
     template_name = 'book_edit.html'
@@ -35,9 +34,6 @@ class BookDeleteView(DeleteView):
     success_url = reverse_lazy('home')
 
 class PublicBookList(APIView):
-    """
-    Return the most recent public posts by all users
-    """
     def get(self, request):
         msgs = Book.objects.all()
         data = BookSerializer(msgs, many=True).data

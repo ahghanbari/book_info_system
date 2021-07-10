@@ -1,7 +1,7 @@
 {% load static %}
 <html>
   <head>
-    <title>Django blog</title>
+    <title>Django Book Store</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:
     rel="stylesheet">
     <link href="{% static 'css/base.css' %}" rel="stylesheet" />
@@ -12,12 +12,14 @@
         <div class="nav-left">
           <h1><a href="{% url 'home' %}">Django Book Store</a></h1>
         </div>
+        {% if user.is_authenticated %}
         <div class="nav-right">
           <a href="{% url 'book_new' %}">+ New Book</a>
         </div>
+        {% endif %}
       </header>
       {% if user.is_authenticated %}
-        <p>Hi {{ user.username }}!</p>
+        <p>Hi {{ user.first_name }}!</p>
         <a href="{% url 'logout' %}">Log out</a></p>
       {% else %}
         <p>You are not logged in.</p>

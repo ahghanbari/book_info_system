@@ -3,10 +3,10 @@
 {% block content %}
   <div class="post-entry">
     <h2>{{ book.title }}</h2> 
-    <p>{{ book.date }}</p>
-    <p>{{ book.pages_number }}</p>
-    <p>{{ book.price }}</p>
-    <p>{{ book.description }}</p>
+    <p>pub date: {{ obj.pub_date }}</p>
+    <p>page numbers: {{ obj.pages_number }}</p>
+    <p>price: {{ obj.price }}</p>
+    <p>description: {{ obj.description }}</p>
   </div>
   <p><a href="{% url 'book_edit' book.pk %}">+ Edit Book</a></p>
   <p><a href="{% url 'book_delete' book.pk %}">+ Delete Book</a></p>
