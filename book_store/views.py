@@ -25,9 +25,12 @@ class BookCreateView(LoginRequiredMixin, CreateView):
     redirect_field_name = '/login/'
     model = Book
     template_name = 'book_new.html'
-    #fields = ['title', 'pub_date', 'pages_number', 'price', 'description']
-    fields = '__all__'
+    fields = ['title', 'pub_date', 'pages_number', 'price', 'description']
     login_url = 'login'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
    
 class BookUpdateView(LoginRequiredMixin, UpdateView):
     model = Book
