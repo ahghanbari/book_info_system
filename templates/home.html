@@ -1,10 +1,16 @@
-{% extends 'base.html' %} {% block content %} {% for obj in object_list %}
-<div class="post-entry">
-  <h2><a href="book/{{obj.id}}">{{ obj.title }}</a></h2>
-  <p>pub date: {{ obj.pub_date }}</p>
-  <p>page numbers: {{ obj.pages_number }}</p>
-  <p>price: {{ obj.price }}</p>
-  <p>description: {{ obj.description }}</p>
-  <p style="border-bottom: 1px solid #999;margin-bottom: 2rem;display: flex;"></p>
-</div>
-{% endfor %} {% endblock content %}
+{% extends 'base.html' %} {% block content %}
+{% if user.is_authenticated %}
+  {% for obj in object_list %}
+    {% if user == obj.author %}
+      <div class="post-entry">
+        <h2><a href="book/{{obj.id}}">{{ obj.title }}</a></h2>
+        <p>pub date: {{ obj.pub_date }}</p>
+        <p>page numbers: {{ obj.pages_number }}</p>
+        <p>price: {{ obj.price }}</p>
+        <p>description: {{ obj.description }}</p>
+        <p style="border-bottom: 1px solid #999;margin-bottom: 2rem;display: flex;"></p>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% endblock content %}

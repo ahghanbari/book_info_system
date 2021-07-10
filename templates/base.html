@@ -19,7 +19,11 @@
         {% endif %}
       </header>
       {% if user.is_authenticated %}
-        <p>Hi {{ user.full_name }}!</p>
+        {% if user.full_name %}
+          <p>Hi {{ user.full_name }}!</p>
+        {% else %}
+          <p>Hi {{ user }}!</p>
+        {% endif %}
         <a href="{% url 'logout' %}">Log out</a></p>
       {% else %}
         <p>You are not logged in.</p>
